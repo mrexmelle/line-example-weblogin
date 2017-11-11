@@ -19,6 +19,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,7 +37,7 @@ public class LineController
 	private final static String POST_ACCESSTOKEN_URL="https://api.line.me/v2/oauth/accessToken";
 	private final static String GET_PROFILE_URL="https://api.line.me/v2/profile";
 
-    @RequestMapping(value="/auth", method=RequestMethod.GET)
+    @GetMapping(value="/auth")
     public ResponseEntity<String> auth(
         HttpSession aSession,
         @RequestParam(value="code", required=false) String aCode,
